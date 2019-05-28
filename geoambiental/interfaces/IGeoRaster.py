@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 
 class IGeoRaster(ABC):
     """
-    Esta interfaz las deben cumplir todos aquellas clases que estén compuestos
-    por una rejila de coordenadas georeferenciada
+    Esta interfaz las deben cumplir todos aquellas clases que representen objetos
+    que estén compuestos por una rejila de coordenadas georeferenciada
     """
     @property
     @abstractmethod

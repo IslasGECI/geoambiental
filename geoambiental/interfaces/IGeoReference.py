@@ -3,8 +3,9 @@ from abc import ABC, abstractmethod
 
 class IGeoReference(ABC):
     """
-    Esta interfaz las deben cumplir todos aquellos objetos tengan coordenadas
-    georeferenciada, no está pensada para rejillas de coordenadas
+    Esta interfaz las deben cumplir todas aquellas clases que representen objetos
+    que tengan coordenadas georeferenciada, no está pensada para rejillas de
+    coordenadas
     """
     @property
     @abstractmethod
