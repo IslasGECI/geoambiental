@@ -1,8 +1,6 @@
 from abc import ABC, abstractmethod
 from .IGeoReference import IGeoReference
 
-from .Point import Point
-
 
 class IGeoReferenceBounded(ABC):
     @property
@@ -32,7 +30,7 @@ class IGeoReferenceBounded(ABC):
 
     @property
     @abstractmethod
-    def punto_medio(self) -> Point:
+    def punto_medio(self) -> IGeoReference:
         pass
 
     @abstractmethod
