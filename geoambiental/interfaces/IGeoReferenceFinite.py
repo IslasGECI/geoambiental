@@ -2,6 +2,10 @@ from abc import ABC, abstractmethod
 
 
 class IGeoReferenceFinite(ABC):
+    """
+    Esta interfaz las deben cumplir todas aquellas clases que representen un
+    conjunto finito de coordenadas georeferenciadas
+    """
     @property
     @abstractmethod
     def x_min(self) -> float:
