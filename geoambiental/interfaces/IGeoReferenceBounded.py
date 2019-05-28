@@ -4,7 +4,7 @@ from .IGeoReference import IGeoReference
 
 class IGeoReferenceBounded(ABC):
     """
-    Esta interfaz las deben cumplir todas aquellas clases que representen objetos
+    Esta interfaz la deben cumplir todas aquellas clases que representen objetos
     que sean cerrados
     """
     @property
