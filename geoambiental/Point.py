@@ -77,4 +77,4 @@ class Point(IGeoReference):
     @property
     def utm_zone(self) -> str:
         _, _, zona, letra = utm.from_latlon(self._lat, self._lon)
-        return np.array(zona, letra)
+        return np.array([zona, letra])
