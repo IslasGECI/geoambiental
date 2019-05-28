@@ -5,7 +5,7 @@ from .IGeoReference import IGeoReference
 class IGeoReferenceBounded(ABC):
     """
     Esta interfaz las deben cumplir todas aquellas clases que representen objetos
-    que estén compuestos por una rejilla de coordenadas georeferenciada
+    que sean cerrados
     """
     @property
     @abstractmethod
