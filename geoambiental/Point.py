@@ -11,7 +11,7 @@ class Point(IGeoReference):
     Parámetros
     ----------
     `lat : float`
-        Coordenadas norte
+        Coordenada norte
 
     `lon : float`
         Coordenada este
