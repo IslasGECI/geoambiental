@@ -5,6 +5,7 @@ import numpy as np
 
 from .. import Point
 
+
 class TestPoint(unittest.TestCase):
 
     def setUp(self):
@@ -28,9 +29,6 @@ class TestPoint(unittest.TestCase):
         self.assertEqual(self.p.utm_zone[0], "11")
         self.assertEqual(self.p.utm_zone[1], "Q")
 
-    def test_prueba_que_falla(self):
-        self.assertTrue(False)
 
-    
 if __name__ == '__main__':
     unittest.main()
