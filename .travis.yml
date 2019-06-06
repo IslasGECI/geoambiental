@@ -1,0 +1,13 @@
+# Esta distribución es necesaria para probar con python 3.7
+dist: xenial
+language: python
+python:
+  - "3.7"
+# Comando para instala dependencias
+install:
+  - pip install -r requirements.txt
+# Comando para correr las pruebas y medir cobertura 
+script:
+  - py.test --cov-report term --cov=geoambiental -v
+after_success:
+  - codecov

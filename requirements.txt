@@ -1,0 +1,7 @@
+codecov
+geopandas
+gpxpy
+numpy
+pytest
+pytest-cov
+utm
