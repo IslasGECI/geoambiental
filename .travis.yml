@@ -1,3 +1,4 @@
+# Esta distribución es necesaria para probar con python 3.7
 dist: xenial
 language: python
 python:
