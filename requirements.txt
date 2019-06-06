@@ -1,4 +1,5 @@
-utm
-numpy
-gpxpy
 geopandas
+gpxpy
+numpy
+pytest
+utm
