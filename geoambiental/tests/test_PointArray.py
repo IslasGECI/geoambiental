@@ -38,5 +38,19 @@ class TestPointArray(unittest.TestCase):
         self.assertEqual(self.p.utm_zone[1][0], "12")
         self.assertEqual(self.p.utm_zone[1][1], "Q")
 
+    def test_lon_min_lat_min(self):
+        """
+        Verifica que la propiedad lon_min y lat_min funcionen como deberían
+        """
+        self.assertAlmostEqual(self.p.lon_min, -118.25)
+        self.assertAlmostEqual(self.p.lat_min, 20.23)
+
+    def test_lon_max_lat_max(self):
+        """
+        Verifica que la propiedad lon_max y lat_max funcionen como deberían
+        """
+        self.assertAlmostEqual(self.p.lon_max, -110.25)
+        self.assertAlmostEqual(self.p.lat_max, 23.05)
+
 if __name__ == '__main__':
     unittest.main()
