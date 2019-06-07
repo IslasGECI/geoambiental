@@ -3,6 +3,7 @@ import json
 
 import numpy as np
 
+from .. import Point
 from .. import PointArray
 
 
@@ -57,6 +58,16 @@ class TestPointArray(unittest.TestCase):
         Se verifica que se pueda hacer un _slice_ de la propiedad points
         """
         self.assertTrue(isinstance(self.p.points[1:], np.ndarray))
+
+    def test_from_point_array(self):
+        """
+        Verifica que se pueda crear un arreglo de puntos desde una lista de
+        objetos Point
+        """
+        punto_1 = Point(23.05, -118.25)
+        punto_2 = Point(20.23, -110.25)
+        arreglo_puntos = PointArray.from_point_array([punto_1, punto_2])
+        self.assertTrue(np.allclose(self.p.x, arreglo_puntos.x))
 
 if __name__ == '__main__':
     unittest.main()
