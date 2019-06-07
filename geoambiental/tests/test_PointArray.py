@@ -21,5 +21,11 @@ class TestPointArray(unittest.TestCase):
         self.assertTrue(np.allclose(self.p.x, [371938.22957668, 578341.05641097]))
         self.assertTrue(np.allclose(self.p.y, [2549601.77459413, 2237110.74773384]))
 
+    def test_lon_lat_numpy(self):
+        """
+        Esta prueba verifica que las coordenadas sean un arreglo de numpy
+        """
+        self.assertTrue(isinstance(self.p.lon, np.ndarray))
+
 if __name__ == '__main__':
     unittest.main()
