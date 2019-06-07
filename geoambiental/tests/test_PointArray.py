@@ -27,5 +27,16 @@ class TestPointArray(unittest.TestCase):
         """
         self.assertTrue(isinstance(self.p.lon, np.ndarray))
 
+    def test_utm_zone(self):
+        """
+        Verifica que la salida de la propiedad utm_zone sea una lista de listas
+        donde el primer parámetro corresponda al número de la zona y el segundo
+        a la letra
+        """        
+        self.assertEqual(self.p.utm_zone[0][0], "11")
+        self.assertEqual(self.p.utm_zone[0][1], "Q")
+        self.assertEqual(self.p.utm_zone[1][0], "12")
+        self.assertEqual(self.p.utm_zone[1][1], "Q")
+
 if __name__ == '__main__':
     unittest.main()
