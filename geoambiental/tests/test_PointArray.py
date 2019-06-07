@@ -52,5 +52,11 @@ class TestPointArray(unittest.TestCase):
         self.assertAlmostEqual(self.p.lon_max, -110.25)
         self.assertAlmostEqual(self.p.lat_max, 23.05)
 
+    def test_slice_points(self):
+        """
+        Se verifica que se pueda hacer un _slice_ de la propiedad points
+        """
+        self.assertTrue(isinstance(self.p.points[1:], np.ndarray))
+
 if __name__ == '__main__':
     unittest.main()
