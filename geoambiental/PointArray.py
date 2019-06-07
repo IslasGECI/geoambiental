@@ -14,11 +14,61 @@ FloatArray = List[float]
 StringArray = List[str]
 
 class PointArray(IGeoReference, IGeoReferenceFinite):
+    """
+    Clase que representa un arreglo de punto georeferenciado en el espacio. Esta
+    clase es similar a Line, pero se diferencían en la forma de representar los
+    datos de forma interna, Line es más eficiente.
+
+    Parámetros
+    ----------
+    `lat : list`
+        Lista de coordenada norte
+
+    `lon : list`
+        Lista de coordenada este
+
+    Atributos
+    ----------
+    `x : np.array`
+        Arreglo con las coordenadas este de todos los polígonos separados por
+        un nan.
+
+    `y : np.array`
+        Arreglo con las coordenadas norte de todos los polígonos separados por
+        un nan.
+
+    `lon : np.array`
+        Arreglo con las longitudes de todos los polígonos separados por un nan.
+
+    `lat : np.array`
+        Arreglo con las latitudes de todos los polígonos separados por un nan.
+
+    `utm_zone : np.array`
+        Arreglo con las zonas utm de las coordenadas de todos los polígonos
+        separados por un nan.
+
+    Métodos
+    -------
+    Ninguno
+
+    Notas
+    -----
+    Ninguna
+
+    Ejemplos
+    --------
+    Crear un arreglo de puntos
+    >>> p = geoambiental.PointArray([23.05, 20.23], [-118.25, -110.25])
+    >>> p.lon
+    array(-118.25, -110.25)
+    >>> p.lon_min
+    -110.25
+    """
     def __init__(self, lat, lon):
         self._create_points(lat, lon)
 
     @staticmethod
-    def from_point_array(point_array) -> PointArray:
+    def from_point_array(point_array: list) -> PointArray:
         puntos = PointArray([], [])
         puntos._puntos = point_array
         return puntos
@@ -36,7 +86,7 @@ class PointArray(IGeoReference, IGeoReferenceFinite):
 
     @property
     def points(self) -> PointArray:
-        return self._puntos
+        return np.array(self._puntos)
 
     @property
     def lon(self) -> FloatArray:
