@@ -1,5 +1,4 @@
 from .interfaces import *
-from .Point import Point
 from .Line import Line
-
+from .Point import Point
 from .PointArray import PointArray
