@@ -24,7 +24,7 @@ class TestPointArray(unittest.TestCase):
 
     def test_lon_lat_numpy(self):
         """
-        Esta prueba verifica que las coordenadas sean un arreglo de numpy
+        Verifica que las coordenadas sean un arreglo de numpy
         """
         self.assertTrue(isinstance(self.p.lon, np.ndarray))
 
