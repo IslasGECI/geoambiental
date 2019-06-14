@@ -55,7 +55,7 @@ class TestPointArray(unittest.TestCase):
 
     def test_slice_points(self):
         """
-        Se verifica que se pueda hacer un _slice_ de la propiedad points
+        Verifica que se pueda hacer un _slice_ de la propiedad points
         """
         self.assertTrue(isinstance(self.p.points[1:], np.ndarray))
 
