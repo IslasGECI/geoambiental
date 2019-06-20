@@ -7,9 +7,9 @@ import utm
 
 from . import IGeoReference
 from . import IGeoReferenceFinite
-from .Point import Point
-from .PointArray import PointArray
-from .Operations import distance_between_points_m
+from . import Point
+from . import PointArray
+from . import distance_between_points_m
 
 # Documentación de los tipos de retorno
 FloatArray = List[float]
