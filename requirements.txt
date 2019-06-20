@@ -1,7 +1,9 @@
 codecov
 geopandas
 gpxpy
+matplotlib
 numpy
 pytest
 pytest-cov
+scipy
 utm
