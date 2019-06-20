@@ -7,6 +7,7 @@ setup(
     install_requires = [
         "geopandas",
         "gpxpy",
+        "matplotlib",
         "numpy",
         "scipy"
         "utm",
