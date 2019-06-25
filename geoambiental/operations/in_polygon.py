@@ -4,7 +4,7 @@ from ..interfaces.IGeoReference import IGeoReference
 from ..interfaces.IGeoReferenceBounded import IGeoReferenceBounded
 
 
-def in_polygon(polygon: IGeoReferenceBounded, geo_reference: IGeoReference):
+def in_polygon(geo_reference: IGeoReference, polygon: IGeoReferenceBounded):
     es_dentro = []
     poligono = path.Path(
         [coordenada for coordenada in zip(polygon.lon, polygon.lat)])
