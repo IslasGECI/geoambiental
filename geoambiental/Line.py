@@ -50,7 +50,7 @@ class Line(IGeoReference, IGeoReferenceFinite):
 
     @property
     def utm_zone(self) -> StringArray:
-        zona = [utm.from_latlon(lat, lon)[2:] for lat, lon in zip(self._lat, self._lon)]         
+        zona = np.array([utm.from_latlon(lat, lon)[2:] for lat, lon in zip(self._lat, self._lon)])
         return zona
 
     @property
