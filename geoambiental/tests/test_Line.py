@@ -68,6 +68,12 @@ class TestLine(unittest.TestCase):
         """
         self.assertAlmostEqual(self.line.length_km[0], 153.205, places=3)
 
+    def test_lenght_m(self):
+        """
+        Verifica que la longitud de la línea sea la correcta
+        """
+        self.assertAlmostEqual(self.line.length_m[0], 153_205, places=0)
+
     def test_from_point_array(self):
         """
         Verifica que se pueda crear un arreglo de puntos desde una lista de
