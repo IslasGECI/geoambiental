@@ -40,7 +40,7 @@ class Line(IGeoReference, IGeoReferenceFinite):
 
     @property
     def x(self) -> FloatArray:
-        x = [[utm.from_latlon(lat, lon)[0]] for lat, lon in zip(self._lat, self._lon)]         
+        x = [[utm.from_latlon(lat, lon)[0]] for lat, lon in zip(self._lat, self._lon)]
         return np.column_stack(x)[0]
 
     @property

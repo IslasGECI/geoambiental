@@ -13,16 +13,16 @@ class TestLine(unittest.TestCase):
         """
         Crea el punto con la coordenada que se utilizará en la prueba
         """
-        self.line = Line([23.05, 20.23], [-118.25, -110.25])
-
+        self.line = Line([23.05, 22.05], [-118.25, -117.22])
+ 
     def test_utm_coordinate(self):
         """
         Verifica que la coordenada se transforme a UTM de forma correcta
         """
         self.assertTrue(np.allclose(
-            self.line.x, [371938.22957668, 578341.05641097]))
+            self.line.x, [371938.22957668, 477299.34]))
         self.assertTrue(np.allclose(
-            self.line.y, [2549601.77459413, 2237110.74773384]))
+            self.line.y, [2549601.77459413, 2438377.63]))
 
     def test_lon_lat_numpy(self):
         """
@@ -39,7 +39,7 @@ class TestLine(unittest.TestCase):
         print(self.line.utm_zone)
         self.assertEqual(self.line.utm_zone[0][0], "11")
         self.assertEqual(self.line.utm_zone[0][1], "Q")
-        self.assertEqual(self.line.utm_zone[1][0], "12")
+        self.assertEqual(self.line.utm_zone[1][0], "11")
         self.assertEqual(self.line.utm_zone[1][1], "Q")
 
     def test_lon_min_lat_min(self):
@@ -47,13 +47,13 @@ class TestLine(unittest.TestCase):
         Verifica que la propiedad lon_min y lat_min funcionen como deberían
         """
         self.assertAlmostEqual(self.line.lon_min, -118.25)
-        self.assertAlmostEqual(self.line.lat_min, 20.23)
+        self.assertAlmostEqual(self.line.lat_min, 22.05)
 
     def test_lon_max_lat_max(self):
         """
         Verifica que la propiedad lon_max y lat_max funcionen como deberían
         """
-        self.assertAlmostEqual(self.line.lon_max, -110.25)
+        self.assertAlmostEqual(self.line.lon_max, -117.22)
         self.assertAlmostEqual(self.line.lat_max, 23.05)
 
     def test_to_point_array(self):
@@ -61,6 +61,12 @@ class TestLine(unittest.TestCase):
         Verifica que se pueda hacer un _slice_ de la propiedad points
         """
         self.assertTrue(isinstance(self.line.to_point_array().points[1:], np.ndarray))
+
+    def test_lenght_km(self):
+        """
+        Verifica que la longitud de la línea sea la correcta
+        """
+        self.assertAlmostEqual(self.line.length_km[0], 153.205, places=3)
 
 
 if __name__ == '__main__':
