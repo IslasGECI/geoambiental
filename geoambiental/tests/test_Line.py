@@ -74,8 +74,8 @@ class TestLine(unittest.TestCase):
         objetos Point
         """
         punto_1 = Point(23.05, -118.25)
-        punto_2 = Point(20.23, -110.25)
-        arreglo_puntos = PointArray.from_point_array([punto_1, punto_2])
+        punto_2 = Point(22.05, -117.22)
+        arreglo_puntos = Line.from_point_array([punto_1, punto_2])        
         self.assertTrue(np.allclose(self.line.x, arreglo_puntos.x))
 
 

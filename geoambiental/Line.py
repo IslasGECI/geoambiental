@@ -22,7 +22,9 @@ class Line(IGeoReference, IGeoReferenceFinite):
 
     @staticmethod
     def from_point_array(point_array) -> Line:
-        return Line(point_array.lat, point_array.lon)
+        puntos = PointArray([], [])
+        puntos._puntos = point_array
+        return Line(puntos.lat, puntos.lon)
 
     def __getitem__(self, index) -> Line:
         return Line(self.lat[index], self.lon[index])
