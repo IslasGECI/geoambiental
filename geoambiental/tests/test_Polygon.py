@@ -71,5 +71,11 @@ class TestPolygon(unittest.TestCase):
         punto = Point([23.5], [-118.5])        
         self.assertTrue(poligono.in_polygon(punto)[0])
 
+    def test_punto_medio(self):
+        """
+        Verifica que el punto medio se calcule de forma correcta
+        """
+        self.assertTrue(self.p.punto_medio.lon == -114.25)
+
 if __name__ == '__main__':
     unittest.main()
