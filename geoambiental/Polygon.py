@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from geoarea import area
 from matplotlib import path
 import numpy as np
 
@@ -8,6 +9,7 @@ from . import IGeoReferenceBounded
 from . import IGeoReferenceFinite
 from .Line import Line
 from .Point import Point
+from . import distance_between_points_m
 
 
 class Polygon(Line, IGeoReferenceBounded):
@@ -25,23 +27,24 @@ class Polygon(Line, IGeoReferenceBounded):
 
     @property
     def area_m2(self) -> float:
-        return self._area()
+        return area(self.lat + self.lat[0],  self.lon + self.lon[0])
 
     @property
     def perimetro_km(self) -> float:
-        return self.length_km
+        return self.perimetro_m*1_000
 
     @property
     def perimetro_m(self) -> float:
-        return self.length_m
+        distancia = 0
+        # Se agrega la distancia del último al primer vertice para que el polígono sea cerrado
+        for i, (lat, lon) in enumerate(zip(self.lat + self.lat[0], self.lon + self.lon[0])):
+            if i == len(self.lon) -1: break
+            distancia += distance_between_points_m(Point(lat, lon), Point(self.lat[i+1], self.lon[i+1]))
+        return distancia
 
     @property
     def punto_medio(self) -> Point:
         return Point(self.lat.mean(), self.lon.mean())
-
-    def _area(self) -> float:
-        # https://stackoverflow.com/questions/24467972/calculate-area-of-polygon-given-x-y-coordinates
-        return 0.5*np.abs(np.dot(self.x, np.roll(self.y, 1))-np.dot(self.y, np.roll(self.x, 1)))
 
     def in_polygon(self, geo_reference: IGeoReference):
         es_dentro = []
