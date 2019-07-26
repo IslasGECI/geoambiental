@@ -1,5 +1,7 @@
 codecov
+geoarea
 geopandas
+geopy
 gpxpy
 matplotlib
 numpy
