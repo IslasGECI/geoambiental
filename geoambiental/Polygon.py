@@ -27,7 +27,7 @@ class Polygon(Line, IGeoReferenceBounded):
 
     @property
     def area_m2(self) -> float:
-        return area(self.lat + self.lat[0],  self.lon + self.lon[0])
+        return area(np.concatenate([self.lat, self.lat[0].reshape(1,)]), np.concatenate([self.lon + self.lon[0].reshape(1,)]))
 
     @property
     def perimetro_km(self) -> float:
@@ -37,7 +37,7 @@ class Polygon(Line, IGeoReferenceBounded):
     def perimetro_m(self) -> float:
         distancia = 0
         # Se agrega la distancia del último al primer vertice para que el polígono sea cerrado
-        for i, (lat, lon) in enumerate(zip(self.lat + self.lat[0], self.lon + self.lon[0])):
+        for i, (lat, lon) in enumerate(zip(np.concatenate([self.lat, self.lat[0].reshape(1,)]), np.concatenate([self.lon + self.lon[0].reshape(1,)]))):
             if i == len(self.lon) -1: break
             distancia += distance_between_points_m(Point(lat, lon), Point(self.lat[i+1], self.lon[i+1]))
         return distancia
