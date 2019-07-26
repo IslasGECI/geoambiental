@@ -78,5 +78,23 @@ class TestPolygon(unittest.TestCase):
         """        
         self.assertAlmostEqual(self.p.punto_medio.lon, -112.93333, places=5)
 
+    def test_area_m(self):
+        """
+        Verifica que el área se calcule de manera correcta
+        """
+        latitude_world = [-90, 90, 90, -90, -90]
+        longitude_world = [-180, -180, 180, 180, -180]
+        poligono = Polygon(latitude_world, longitude_world)
+        self.assertAlmostEqual(poligono.area_m2, 511207893395811.06)
+
+    def test_area_km(self):
+        """
+        Verifica que el área se calcule de manera correcta
+        """
+        latitude_world = [-90, 90, 90, -90, -90]
+        longitude_world = [-180, -180, 180, 180, -180]
+        poligono = Polygon(latitude_world, longitude_world)
+        self.assertAlmostEqual(poligono.area_km2, 511207893395811.06*1e-6)
+
 if __name__ == '__main__':
     unittest.main()
