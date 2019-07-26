@@ -13,14 +13,14 @@ class TestPolygon(unittest.TestCase):
         """
         Crea el punto con la coordenada que se utilizará en la prueba
         """
-        self.p = Polygon([23.05, 20.23], [-118.25, -110.25])
+        self.p = Polygon([23.05, 20.23, 19.20], [-118.25, -110.25, -110.3])
 
     def test_utm_coordinate(self):
         """
         Verifica que la coordenada se transforme a UTM de forma correcta
         """        
-        self.assertTrue(np.allclose(self.p.x, [371938.22957668, 578341.05641097]))
-        self.assertTrue(np.allclose(self.p.y, [2549601.77459413, 2237110.74773384]))
+        self.assertTrue(np.allclose(self.p.x, [371938.22957668, 578341.05641097, 573587.90026725]))
+        self.assertTrue(np.allclose(self.p.y, [2549601.77459413, 2237110.74773384, 2123105.08841421]))
 
     def test_lon_lat_numpy(self):
         """
@@ -44,7 +44,7 @@ class TestPolygon(unittest.TestCase):
         Verifica que la propiedad lon_min y lat_min funcionen como deberían
         """
         self.assertAlmostEqual(self.p.lon_min, -118.25)
-        self.assertAlmostEqual(self.p.lat_min, 20.23)
+        self.assertAlmostEqual(self.p.lat_min, 19.20)
 
     def test_lon_max_lat_max(self):
         """
@@ -60,7 +60,8 @@ class TestPolygon(unittest.TestCase):
         """
         punto_1 = Point(23.05, -118.25)
         punto_2 = Point(20.23, -110.25)
-        arreglo_puntos = Polygon.from_point_array([punto_1, punto_2])
+        punto_3 = Point(19.20, -110.3)
+        arreglo_puntos = Polygon.from_point_array([punto_1, punto_2, punto_3])
         self.assertTrue(np.allclose(self.p.x, arreglo_puntos.x))
 
     def test_in_polygon(self):
@@ -68,14 +69,14 @@ class TestPolygon(unittest.TestCase):
         Verifica que el método in_polygon funcione correctamente
         """
         poligono = Polygon([23, 23, 24, 24], [-118, -119, -119, -118])
-        punto = Point([23.5], [-118.5])        
+        punto = Point([23.5], [-118.5])
         self.assertTrue(poligono.in_polygon(punto)[0])
 
     def test_punto_medio(self):
         """
         Verifica que el punto medio se calcule de forma correcta
-        """
-        self.assertTrue(self.p.punto_medio.lon == -114.25)
+        """        
+        self.assertAlmostEqual(self.p.punto_medio.lon, -112.93333, places=5)
 
 if __name__ == '__main__':
     unittest.main()
