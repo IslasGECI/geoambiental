@@ -1,11 +1,11 @@
 codecov
+pytest
+pytest-cov
 geoarea
 geopandas
 geopy
 gpxpy
 matplotlib
 numpy
-pytest
-pytest-cov
 scipy
 utm

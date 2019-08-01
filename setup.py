@@ -12,6 +12,6 @@ setup(
         "matplotlib",
         "numpy",
         "scipy",
-        "utm",
+        "utm"
     ]
 )
