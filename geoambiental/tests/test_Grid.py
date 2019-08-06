@@ -32,8 +32,15 @@ class TestGrid(unittest.TestCase):
         """
         Verifica que las coordenadas sean correctas
         """
-        self.assertTrue(self.grid.lon, [-118.25, -117.22])
-        self.assertTrue(self.grid.lat, [23.05, 22.05])
+        self.assertTrue(np.array_equal(self.grid.lon, [-118.25, -117.22]))
+        self.assertTrue(np.array_equal(self.grid.lat, [23.05, 22.05]))
+
+    def test_x_y_shape(self):
+        """
+        Verifica que las coordenadas tengan las dimensiones correctas
+        """
+        self.assertTrue(self.grid.x.shape, (2,))
+        self.assertTrue(self.grid.y.shape, (2,))
 
     def test_utm_zone_shape(self):
         """
