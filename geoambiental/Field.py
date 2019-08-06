@@ -60,4 +60,3 @@ class Field(Grid, ITimeReference):
                     else:
                         raise Exception('No se encontró la dimensión del tiempo')
         return Field(self.lat, self.lon, variables, self.date, self._dimensions)
-

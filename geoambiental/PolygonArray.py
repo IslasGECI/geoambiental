@@ -120,35 +120,35 @@ class PolygonArray(IGeoReference):
 
     @property
     def x_min(self) -> float:
-        return self.x.min()
+        return np.nanmin(self.x)
 
     @property
     def x_max(self) -> float:
-        return self.x.max()
+        return np.nanmax(self.x)
 
     @property
     def y_min(self) -> float:
-        return self.y.min()
+        return np.nanmin(self.y)
 
     @property
     def y_max(self) -> float:
-        return self.y.max()
+        return np.nanmax(self.y)
 
     @property
     def lat_min(self) -> float:
-        return self.lat.min()
+        return np.nanmin(self.lat)
 
     @property
     def lat_max(self) -> float:
-        return self.lat.max()
+        return np.nanmax(self.lat)
 
     @property
     def lon_min(self) -> float:
-        return self.lon.min()
+        return np.nanmin(self.lon)
 
     @property
     def lon_max(self) -> float:
-        return self.lon.max()
+        return np.nanmax(self.lon)
 
     def in_polygon(self, polygon: Polygon) -> PolygonArray:
         # TODO: Implementar método para extraer los polígonos que se encuentran
