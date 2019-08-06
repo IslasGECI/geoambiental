@@ -5,7 +5,7 @@ from sklearn.neighbors import KernelDensity
 from .interfaces import IGeoReference
 
 
-def kernelDensityGeographic(GeoreferenceObject: IGeoReference, bandwidth=.005, xbins=100, ybins=100, **kwargs):
+def get_kernel_density_geographic(GeoreferenceObject: IGeoReference, bandwidth=.005, xbins=100, ybins=100, **kwargs):
     x = np.linspace(GeoreferenceObject.lon.min() - bandwidth*2,
                     GeoreferenceObject.lon.max() + bandwidth*2, xbins)
     y = np.linspace(GeoreferenceObject.lat.min() - bandwidth*2,
@@ -22,7 +22,7 @@ def kernelDensityGeographic(GeoreferenceObject: IGeoReference, bandwidth=.005, x
     return xgrid, ygrid, Z
 
 
-def kernelDensity(GeoreferenceObject: IGeoReference, bandwidth=.005, xbins=100, ybins=100, **kwargs):
+def get_kernel_density(GeoreferenceObject: IGeoReference, bandwidth=.005, xbins=100, ybins=100, **kwargs):
     x = np.linspace(GeoreferenceObject.x.min() - bandwidth*2,
                     GeoreferenceObject.x.max()+bandwidth*2, xbins)
     y = np.linspace(GeoreferenceObject.y.min()-bandwidth*2,
