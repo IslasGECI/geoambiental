@@ -8,3 +8,4 @@ from .Line import Line
 from .Polygon import Polygon
 
 from .GeoCircle import GeoCircle
+from .Trajectory import Trajectory
