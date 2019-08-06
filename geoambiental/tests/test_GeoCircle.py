@@ -11,7 +11,7 @@ class TestGeoCircle(unittest.TestCase):
 
     def setUp(self):
         """
-        Crea geocirculo
+        Crea variables que se usarán en las pruebas
         """
         self.centro = Point(24, -118)
         self.radio = 1_500
@@ -20,15 +20,14 @@ class TestGeoCircle(unittest.TestCase):
 
     def test_n_vertices(self):
         """
-        Verifica que la coordenada se transforme a UTM de forma correcta
+        Verifica que la cantidad de vetices coincida con la cantidad de coordenadas
         """
         self.assertTrue(len(self.circle.lon) == self.n_vertices)
 
-    
     def test_punto_medio(self):
         """
-        Verifica que el punto medio se calcule de forma correcta
-        """        
+        Verifica que el punto medio caiga cerca del punto que se usó para definir el centro del círculo
+        """
         self.assertAlmostEqual(self.circle.punto_medio.lon, self.centro.lon, places=0)
         self.assertAlmostEqual(self.circle.punto_medio.lat, self.centro.lat, places=0)
 
@@ -36,6 +35,7 @@ class TestGeoCircle(unittest.TestCase):
         """
         Verifica que el área se calcule de manera correcta
         """
+        # Se acepta un pequeño error que viene del cálculo numérico del área
         self.assertTrue(abs(self.circle.area_m2) - (self.radio**2)*np.pi <= (self.radio**2)*np.pi*.1)
 
 
