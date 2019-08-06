@@ -1,8 +1,7 @@
 import numpy as np
 import utm
 
-from .IGeoReferenceBounded import IGeoReferenceBounded
-from .ITimereference import ITimereference
+from .interfaces import IGeoReferenceBounded, ITimeReference
 from .Grid import Grid
 from .Map import Map
 from .Point import Point

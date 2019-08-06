@@ -1,5 +1,5 @@
 from .Grid import Grid
-from .IGeoReferenceBounded import IGeoReferenceBounded
+from .interfaces import IGeoReferenceBounded
 from .Point import Point
 
 import numpy as np

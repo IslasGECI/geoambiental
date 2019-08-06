@@ -1,6 +1,4 @@
-from .IGeoRaster import IGeoRaster
-from .IGeoReference import IGeoReference
-from .IGeoReferenceBounded import IGeoReferenceBounded
+from .interfaces import IGeoRaster, IGeoReference, IGeoReferenceBounded
 from .Point import Point
 
 import numpy as np

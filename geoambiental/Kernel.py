@@ -2,7 +2,7 @@ import numpy as np
 from sklearn.datasets.species_distributions import construct_grids
 from sklearn.neighbors import KernelDensity
 
-from .IGeoReference import IGeoReference
+from .interfaces import IGeoReference
 
 
 def kernelDensityGeographic(GeoreferenceObject: IGeoReference, bandwidth=.005, xbins=100, ybins=100, **kwargs):

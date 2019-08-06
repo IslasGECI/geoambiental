@@ -2,13 +2,11 @@ from __future__ import annotations
 
 import numpy as np
 
-from .IGeoReference import IGeoReference
-from .ITimereference import ITimereference
-from .IGeoReferenceFinite import IGeoReferenceFinite
+from .interfaces import IGeoReference, ITimeReference, IGeoReferenceFinite
 from .Line import Line
 
 
-class Trajectory(Line, ITimereference):
+class Trajectory(Line, ITimeReference):
 
     def __init__(self, lat, lon, date):
         super().__init__(lat, lon)
@@ -21,4 +19,4 @@ class Trajectory(Line, ITimereference):
 
     @property
     def date(self) -> np.array:
-        return self._date
+        return np.array(self._date)
