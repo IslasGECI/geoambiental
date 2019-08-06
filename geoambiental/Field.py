@@ -6,7 +6,7 @@ from .Grid import Grid
 from .Map import Map
 from .Point import Point
 
-class Field(Grid,ITimereference):
+class Field(Grid, ITimeReference):
     def __init__(self,lat,lon,value,date,dimensions="lon,lat,t"):
         super(Field,self).__init__(lat,lon)
         self._date = date
