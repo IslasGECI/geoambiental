@@ -15,7 +15,7 @@ class TestGeoCircle(unittest.TestCase):
         """
         self.centro = Point(24, -118)
         self.radio = 1_500
-        self.n_vertices = 1_000
+        self.n_vertices = 12
         self.circle = GeoCircle(self.centro, radius_m=self.radio, n_vertices=self.n_vertices)
 
     def test_n_vertices(self):
@@ -35,8 +35,8 @@ class TestGeoCircle(unittest.TestCase):
         """
         Verifica que el área se calcule de manera correcta
         """
-        # Se acepta un pequeño error que viene del cálculo numérico del área
-        self.assertTrue(abs(self.circle.area_m2) - (self.radio**2)*np.pi <= (self.radio**2)*np.pi*.1)
+        # Se acepta un pequeño error que viene del cálculo numérico del área        
+        self.assertTrue(abs(abs(self.circle.area_m2) - (self.radio**2)*np.pi) <= (self.radio**2)*np.pi*.05)
 
 
 if __name__ == '__main__':
