@@ -37,19 +37,19 @@ class Grid(IGeoRaster,IGeoReference):
 
     @property
     def lat(self):
-        return self._lat
+        return np.array(self._lat)
 
     @property
     def lon(self):
-        return self._lon
+        return np.array(self._lon)
 
     @property
     def y(self):
-        return self.Y[:,1]
+        return np.array(self.Y[:,1])
 
     @property
     def x(self):
-        return self.X[1,:]
+        return np.array(self.X[1,:])
 
     @property
     def utm_zone(self):
