@@ -13,3 +13,6 @@ from .GeoCircle import GeoCircle
 from .Map import Map
 from .PolygonArray import PolygonArray
 from .Trajectory import Trajectory
+
+from .io import read_gpx_waypoints, import_coast_line
+from .Kernel import kernelDensityGeographic, kernelDensity
