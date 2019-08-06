@@ -6,12 +6,10 @@ from .interfaces import IGeoReference
 
 
 def kernelDensityGeographic(GeoreferenceObject: IGeoReference, bandwidth=.005, xbins=100, ybins=100, **kwargs):
-    diferencia_lon = (GeoreferenceObject.lon.max() - GeoreferenceObject.lon.min())/10
-    diferencia_lat = (GeoreferenceObject.lat.max() - GeoreferenceObject.lat.min())/10
-    x = np.linspace(GeoreferenceObject.lon.min() - diferencia_lon,
-                    GeoreferenceObject.lon.max() + diferencia_lon , xbins)
-    y = np.linspace(GeoreferenceObject.lat.min() - diferencia_lat,
-                    GeoreferenceObject.lat.max() + diferencia_lat, ybins)
+    x = np.linspace(GeoreferenceObject.lon.min() - bandwidth*2,
+                    GeoreferenceObject.lon.max() + bandwidth*2, xbins)
+    y = np.linspace(GeoreferenceObject.lat.min() - bandwidth*2,
+                    GeoreferenceObject.lat.max() + bandwidth*2, ybins)
     xgrid, ygrid = np.meshgrid(x, y)
     xy_sample = np.vstack([ygrid.ravel(), xgrid.ravel()]).T
     xy_train = np.vstack([GeoreferenceObject.lat, GeoreferenceObject.lon]).T
@@ -25,7 +23,7 @@ def kernelDensityGeographic(GeoreferenceObject: IGeoReference, bandwidth=.005, x
 
 
 def kernelDensity(GeoreferenceObject: IGeoReference, bandwidth=.005, xbins=100, ybins=100, **kwargs):
-    x = np.linspace(GeoreferenceObject.x.min()- bandwidth*2,
+    x = np.linspace(GeoreferenceObject.x.min() - bandwidth*2,
                     GeoreferenceObject.x.max()+bandwidth*2, xbins)
     y = np.linspace(GeoreferenceObject.y.min()-bandwidth*2,
                     GeoreferenceObject.y.max()+bandwidth*2, ybins)
