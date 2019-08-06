@@ -19,6 +19,11 @@ class TestTrajectory(unittest.TestCase):
     def test_get_dates(self):
         self.assertTrue(self.trajectory.date[0] == self.fechas[0])
 
+    def test_get_items_(self):
+        self.assertTrue(self.trajectory[0].date == self.fechas[0])
+        self.assertTrue(self.trajectory[0].lon == -118.25)
+        self.assertTrue(self.trajectory[0].lat == 23.05)
+
 
 if __name__ == '__main__':
     unittest.main()
