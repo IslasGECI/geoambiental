@@ -8,4 +8,5 @@ gpxpy
 matplotlib
 numpy
 scipy
+sklearn
 utm

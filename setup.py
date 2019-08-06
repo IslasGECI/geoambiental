@@ -12,6 +12,7 @@ setup(
         "matplotlib",
         "numpy",
         "scipy",
+        "sklearn",
         "utm"
     ]
 )
