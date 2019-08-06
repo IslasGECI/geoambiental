@@ -6,3 +6,5 @@ from .PointArray import PointArray
 
 from .Line import Line
 from .Polygon import Polygon
+
+from .GeoCircle import GeoCircle
