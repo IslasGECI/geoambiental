@@ -14,7 +14,7 @@ class Map(Grid):
     def value(self):
         return self._value
 
-    def mask(self,geo_reference_bounded: IGeoReferenceBounded):
+    def set_nan_outside(self,geo_reference_bounded: IGeoReferenceBounded):
         LON = np.full(self.LON.shape, np.nan)
         LAT = np.full(self.LAT.shape, np.nan)
         variables = np.full(self.value.shape, np.nan)

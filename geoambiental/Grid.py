@@ -60,7 +60,7 @@ class Grid(IGeoRaster,IGeoReference):
                 zona_utm[i][j] = str(numero) + letra
         return zona_utm
 
-    def mask(self,geo_reference_bounded: IGeoReferenceBounded):         
+    def set_nan_outside(self,geo_reference_bounded: IGeoReferenceBounded):         
         LON = np.full(self.LON.shape, np.nan)
         LAT = np.full(self.LAT.shape, np.nan)
         for i, lat in enumerate(self.lat):

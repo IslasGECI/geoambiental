@@ -41,7 +41,7 @@ class Field(Grid, ITimeReference):
         return dimension_t
         
 
-    def mask(self,geo_reference_bounded: IGeoReferenceBounded):
+    def set_nan_outside(self,geo_reference_bounded: IGeoReferenceBounded):
         variables = np.full(self._value.shape, np.nan)
         dimension_t = self._get_date_index_dimension()
         for i, lat in enumerate(self.lat):
