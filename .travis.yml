@@ -10,5 +10,6 @@ install:
 # Comando para correr las pruebas y medir cobertura 
 script:
   - py.test --cov-report term --cov=geoambiental -v
+  - pylint geoambiental
 after_success:
   - codecov

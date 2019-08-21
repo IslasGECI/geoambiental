@@ -1,6 +1,10 @@
+# Dependencias de desarrollo
 codecov
+pylint
 pytest
 pytest-cov
+
+# Dependencias del módulo
 geoarea
 geopandas
 geopy
