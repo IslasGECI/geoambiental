@@ -15,7 +15,7 @@ install:
 script:
   - pytest --cov-report term --cov=geoambiental -v
   - pip install .
-  - pylint geoambiental
+  - pylint --disable=duplicate-code geoambiental
 
   after_success:
   - codecov
