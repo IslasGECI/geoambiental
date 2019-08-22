@@ -17,7 +17,7 @@ script:
   - echo "Se construye e instala el módulo"
   - pip install .
   - echo "Se revisa el formato de los archivos"
-  - pylint --disable=duplicate-code geoambiental
+  - pylint-fail-under --fail_under 6.0 geoambiental
 
 after_success:
   - codecov

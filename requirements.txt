@@ -1,6 +1,6 @@
 # Dependencias de desarrollo
 codecov
-pylint
+pylint-fail-under
 pytest
 pytest-cov
 
