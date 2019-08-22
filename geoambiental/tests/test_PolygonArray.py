@@ -1,10 +1,9 @@
-import unittest
 import json
+import unittest
 
 import numpy as np
 
-from .. import Polygon
-from .. import PolygonArray
+from .. import Polygon, PolygonArray
 
 
 class TestPolygonArray(unittest.TestCase):
@@ -43,6 +42,7 @@ class TestPolygonArray(unittest.TestCase):
 
     def test_getitem(self):
         self.assertTrue(self.polygon_array[0].lon[0] == -118.25)
+
 
 if __name__ == '__main__':
     unittest.main()

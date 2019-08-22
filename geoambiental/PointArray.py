@@ -5,13 +5,13 @@ from typing import List
 import numpy as np
 import utm
 
-from . import IGeoReference
-from . import IGeoReferenceFinite
+from . import IGeoReference, IGeoReferenceFinite
 from .Point import Point
 
 # Documentación de los tipos de retorno
 FloatArray = List[float]
 StringArray = List[str]
+
 
 class PointArray(IGeoReference, IGeoReferenceFinite):
     """
@@ -64,6 +64,7 @@ class PointArray(IGeoReference, IGeoReferenceFinite):
     >>> p.lon_min
     -110.25
     """
+
     def __init__(self, lat, lon):
         self._create_points(lat, lon)
 
@@ -139,4 +140,3 @@ class PointArray(IGeoReference, IGeoReferenceFinite):
     @property
     def lon_max(self) -> float:
         return self.lon.max()
-

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from .interfaces import IGeoReference, ITimeReference, IGeoReferenceFinite
+from .interfaces import IGeoReference, IGeoReferenceFinite, ITimeReference
 from .Line import Line
 
 

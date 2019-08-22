@@ -5,13 +5,14 @@ from typing import List
 import numpy as np
 import utm
 
+from . import Polygon
 from .interfaces import IGeoReference
 from .Point import Point
-from . import Polygon
 
 # Documentación de los tipos de retorno
 FloatArray = List[float]
 StringArray = List[str]
+
 
 class PolygonArray(IGeoReference):
     """
@@ -22,7 +23,7 @@ class PolygonArray(IGeoReference):
     ----------
     `PolygonArray : list`
         Lista que contiene un arreglo de geoambiental.Polygon.
-    
+
     Atributos
     ----------
     `x : np.array`
@@ -67,18 +68,18 @@ class PolygonArray(IGeoReference):
         Arreglo con las zonas utm de las coordenadas de todos los polígonos
         separados por un nan.
 
-    
+
     Métodos
     -------
     `in_polygon(polygon: geoambiental.Polygon): PolygonArray`
         Regresa un geoambiental.PolygonArray que contiene los polígonos
         contenidos **completamente** dentro del polígono que se pasa como
         argumento.
-    
+
     Notas
     -----
     None
-    
+
     Ejemplos
     --------
     Se puede obtener un geoambiental.PolygonArray desde un archivo shp:
@@ -88,6 +89,7 @@ class PolygonArray(IGeoReference):
     Para obtener solo el primer polígono del arreglo:
     >>> primer_islote = linea_costa_guadalupe[0] # se obtiene un geoambiental.Polygon
     """
+
     def __init__(self, PolygonArray: list):
         self._polygons = PolygonArray
 

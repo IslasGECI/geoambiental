@@ -9,7 +9,7 @@ class IGeoReference(ABC):
     """
     @property
     @abstractmethod
-    def x(self) ->float:
+    def x(self) -> float:
         pass
 
     @property

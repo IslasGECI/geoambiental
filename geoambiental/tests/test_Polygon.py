@@ -1,10 +1,9 @@
-import unittest
 import json
+import unittest
 
 import numpy as np
 
-from .. import Point
-from .. import Polygon
+from .. import Point, Polygon
 
 
 class TestPolygon(unittest.TestCase):
@@ -18,9 +17,11 @@ class TestPolygon(unittest.TestCase):
     def test_utm_coordinate(self):
         """
         Verifica que la coordenada se transforme a UTM de forma correcta
-        """        
-        self.assertTrue(np.allclose(self.p.x, [371938.22957668, 578341.05641097, 573587.90026725]))
-        self.assertTrue(np.allclose(self.p.y, [2549601.77459413, 2237110.74773384, 2123105.08841421]))
+        """
+        self.assertTrue(np.allclose(
+            self.p.x, [371938.22957668, 578341.05641097, 573587.90026725]))
+        self.assertTrue(np.allclose(
+            self.p.y, [2549601.77459413, 2237110.74773384, 2123105.08841421]))
 
     def test_lon_lat_numpy(self):
         """
@@ -33,7 +34,7 @@ class TestPolygon(unittest.TestCase):
         Verifica que la salida de la propiedad utm_zone sea una lista de listas
         donde el primer parámetro corresponda al número de la zona y el segundo
         a la letra
-        """        
+        """
         self.assertEqual(self.p.utm_zone[0][0], "11")
         self.assertEqual(self.p.utm_zone[0][1], "Q")
         self.assertEqual(self.p.utm_zone[1][0], "12")
@@ -75,7 +76,7 @@ class TestPolygon(unittest.TestCase):
     def test_punto_medio(self):
         """
         Verifica que el punto medio se calcule de forma correcta
-        """        
+        """
         self.assertAlmostEqual(self.p.punto_medio.lon, -112.93333, places=5)
 
     def test_area_m2(self):

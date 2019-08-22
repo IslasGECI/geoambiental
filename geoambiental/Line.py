@@ -5,15 +5,13 @@ from typing import List
 import numpy as np
 import utm
 
-from . import IGeoReference
-from . import IGeoReferenceFinite
-from . import Point
-from . import PointArray
-from . import distance_between_points_m
+from . import (IGeoReference, IGeoReferenceFinite, Point, PointArray,
+               distance_between_points_m)
 
 # Documentación de los tipos de retorno
 FloatArray = List[float]
 StringArray = List[str]
+
 
 class Line(IGeoReference, IGeoReferenceFinite):
     def __init__(self, lat, lon):
@@ -42,17 +40,20 @@ class Line(IGeoReference, IGeoReferenceFinite):
 
     @property
     def x(self) -> FloatArray:
-        x = [[utm.from_latlon(lat, lon)[0]] for lat, lon in zip(self._lat, self._lon)]
+        x = [[utm.from_latlon(lat, lon)[0]]
+             for lat, lon in zip(self._lat, self._lon)]
         return np.column_stack(x)[0]
 
     @property
     def y(self) -> FloatArray:
-        y = [[utm.from_latlon(lat, lon)[1]] for lat, lon in zip(self._lat, self._lon)]         
+        y = [[utm.from_latlon(lat, lon)[1]]
+             for lat, lon in zip(self._lat, self._lon)]
         return np.column_stack(y)[0]
 
     @property
     def utm_zone(self) -> StringArray:
-        zona = np.array([utm.from_latlon(lat, lon)[2:] for lat, lon in zip(self._lat, self._lon)])
+        zona = np.array([utm.from_latlon(lat, lon)[2:]
+                         for lat, lon in zip(self._lat, self._lon)])
         return zona
 
     @property
@@ -91,8 +92,10 @@ class Line(IGeoReference, IGeoReferenceFinite):
     def length_m(self):
         distancia = 0
         for i, (lat, lon) in enumerate(zip(self.lat, self.lon)):
-            if i == len(self.lon) -1: break
-            distancia += distance_between_points_m(Point(lat, lon), Point(self.lat[i+1], self.lon[i+1]))
+            if i == len(self.lon) - 1:
+                break
+            distancia += distance_between_points_m(
+                Point(lat, lon), Point(self.lat[i+1], self.lon[i+1]))
         return distancia
 
     @property

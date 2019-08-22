@@ -2,6 +2,7 @@ import gpxpy
 
 from ..PointArray import PointArray
 
+
 def read_gpx_waypoints(path: str) -> PointArray:
     """
     Lee un archivo gpx y regresa un geoambiental.PointArray con todos los
@@ -15,7 +16,7 @@ def read_gpx_waypoints(path: str) -> PointArray:
     Notas
     -----
     None
-    
+
     Ejemplos
     --------
     Leer un archivo gpx:

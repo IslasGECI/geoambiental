@@ -1,10 +1,9 @@
-import unittest
 import json
+import unittest
 
 import numpy as np
 
-from .. import Point
-from .. import Line
+from .. import Line, Point
 
 
 class TestLine(unittest.TestCase):
@@ -14,7 +13,7 @@ class TestLine(unittest.TestCase):
         Crea el punto con la coordenada que se utilizará en la prueba
         """
         self.line = Line([23.05, 22.05], [-118.25, -117.22])
- 
+
     def test_utm_coordinate(self):
         """
         Verifica que la coordenada se transforme a UTM de forma correcta
@@ -60,7 +59,8 @@ class TestLine(unittest.TestCase):
         """
         Verifica que se pueda hacer un _slice_ de la propiedad points
         """
-        self.assertTrue(isinstance(self.line.to_point_array().points[1:], np.ndarray))
+        self.assertTrue(isinstance(
+            self.line.to_point_array().points[1:], np.ndarray))
 
     def test_lenght_km(self):
         """
@@ -81,7 +81,7 @@ class TestLine(unittest.TestCase):
         """
         punto_1 = Point(23.05, -118.25)
         punto_2 = Point(22.05, -117.22)
-        arreglo_puntos = Line.from_point_array([punto_1, punto_2])        
+        arreglo_puntos = Line.from_point_array([punto_1, punto_2])
         self.assertTrue(np.allclose(self.line.x, arreglo_puntos.x))
 
 

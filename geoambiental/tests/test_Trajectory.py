@@ -1,6 +1,6 @@
-from datetime import datetime
-import unittest
 import json
+import unittest
+from datetime import datetime
 
 import numpy as np
 
@@ -14,7 +14,8 @@ class TestTrajectory(unittest.TestCase):
         Crea el punto con la coordenada que se utilizará en la prueba
         """
         self.fechas = [datetime(2018, 2, 15), datetime(2018, 2, 16)]
-        self.trajectory = Trajectory([23.05, 22.05], [-118.25, -117.22], self.fechas)
+        self.trajectory = Trajectory(
+            [23.05, 22.05], [-118.25, -117.22], self.fechas)
 
     def test_get_dates(self):
         self.assertTrue(self.trajectory.date[0] == self.fechas[0])

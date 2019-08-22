@@ -1,5 +1,5 @@
-import unittest
 import json
+import unittest
 
 import numpy as np
 
@@ -12,7 +12,8 @@ class TestMap(unittest.TestCase):
         """
         Crea el punto con la coordenada que se utilizará en la prueba
         """
-        self.map = Map([23.05, 22.05], [-118.25, -117.22], np.array([[5, 4], [7, 8]]))
+        self.map = Map([23.05, 22.05], [-118.25, -117.22],
+                       np.array([[5, 4], [7, 8]]))
 
     def test_value_shape(self):
         """
