@@ -12,8 +12,11 @@ install:
 # Comando para correr las pruebas y medir cobertura 
 
 script:
+  - echo "Se corren las pruebas"
   - pytest --cov-report term --cov=geoambiental -v
+  - echo "Se construye e instala el módulo"
   - pip install .
+  - echo "Se revisa el formato de los archivos"
   - pylint --disable=duplicate-code geoambiental
 
 after_success:
