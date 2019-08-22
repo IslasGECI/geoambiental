@@ -4,7 +4,7 @@ language: python
 python:
   - "3.7"
 
-  cache: pip
+cache: pip
 # Comando para instala dependencias
 
 install:
