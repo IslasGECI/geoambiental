@@ -1,5 +1,5 @@
 # Esta distribución es necesaria para probar con python 3.7
-dist: xenial
+dist: bionic
 language: python
 python:
   - "3.7"
