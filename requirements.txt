@@ -1,9 +1,3 @@
-# Dependencias de desarrollo
-codecov
-pylint-fail-under
-pytest
-pytest-cov
-
 # Dependencias del módulo
 geoarea
 geopandas
@@ -14,3 +8,13 @@ numpy
 scipy
 sklearn
 utm
+
+# Dependencias de desarrollo
+autopep8
+codecov
+mutmut
+pylint
+pylint-fail-under
+pytest-cov
+pytest==5.0.1
+rope
