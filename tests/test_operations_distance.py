@@ -3,7 +3,8 @@ import unittest
 
 import numpy as np
 
-from .. import Point, operations
+from geoambiental.Point import Point
+import geoambiental.operations as operations
 
 
 class TestDistance(unittest.TestCase):

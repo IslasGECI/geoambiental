@@ -3,7 +3,8 @@ import unittest
 
 import numpy as np
 
-from .. import GeoCircle, Point
+from geoambiental.GeoCircle import GeoCircle
+from geoambiental.Point import Point
 
 
 class TestGeoCircle(unittest.TestCase):

@@ -3,7 +3,7 @@ import unittest
 
 import numpy as np
 
-from .. import Point
+from geoambiental.Point import Point
 
 
 class TestPoint(unittest.TestCase):

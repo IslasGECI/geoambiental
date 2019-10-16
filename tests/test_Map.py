@@ -3,7 +3,7 @@ import unittest
 
 import numpy as np
 
-from .. import Map
+from geoambiental.Map import Map
 
 
 class TestMap(unittest.TestCase):

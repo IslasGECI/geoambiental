@@ -4,7 +4,7 @@ from datetime import datetime
 
 import numpy as np
 
-from .. import Field
+from geoambiental.Field import Field
 
 
 class TestGrid(unittest.TestCase):

@@ -3,7 +3,8 @@ import unittest
 
 import numpy as np
 
-from .. import Line, Point
+from geoambiental.Line import Line
+from geoambiental.Point import Point
 
 
 class TestLine(unittest.TestCase):

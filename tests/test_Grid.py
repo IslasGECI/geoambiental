@@ -3,7 +3,7 @@ import unittest
 
 import numpy as np
 
-from .. import Grid
+from geoambiental.Grid import Grid
 
 
 class TestGrid(unittest.TestCase):

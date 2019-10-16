@@ -3,7 +3,8 @@ import unittest
 
 import numpy as np
 
-from .. import Point, Polygon
+from geoambiental.Point import Point
+from geoambiental.Polygon import Polygon
 
 
 class TestPolygon(unittest.TestCase):

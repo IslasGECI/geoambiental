@@ -3,7 +3,8 @@ import unittest
 
 import numpy as np
 
-from .. import PointArray, get_kernel_density, get_kernel_density_geographic
+from geoambiental.Kernel import get_kernel_density, get_kernel_density_geographic
+from geoambiental.PointArray import PointArray
 
 
 class TestKernel(unittest.TestCase):

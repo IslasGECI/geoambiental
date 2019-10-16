@@ -3,7 +3,9 @@ import unittest
 
 import numpy as np
 
-from .. import Polygon, PolygonArray
+from geoambiental.Polygon import Polygon
+from geoambiental.PolygonArray import PolygonArray
+
 
 
 class TestPolygonArray(unittest.TestCase):

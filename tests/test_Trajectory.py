@@ -4,7 +4,7 @@ from datetime import datetime
 
 import numpy as np
 
-from .. import Trajectory
+from geoambiental.Trajectory import Trajectory
 
 
 class TestTrajectory(unittest.TestCase):

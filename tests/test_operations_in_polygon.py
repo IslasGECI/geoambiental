@@ -3,7 +3,9 @@ import unittest
 
 import numpy as np
 
-from .. import Point, Polygon, operations
+from geoambiental.Point import Point
+from geoambiental.Polygon import Polygon
+import geoambiental.operations as operations
 
 
 class TestInPolygon(unittest.TestCase):
