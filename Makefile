@@ -1,7 +1,10 @@
-.PHONY: clean mutation
+.PHONY: clean mutation tests
 
 clean:
-	sudo rm --recursive $$(find . -name "__pycache__")
+	rm --recursive $$(find . -name "__pycache__")
 
 mutation:
-	mutmut run --paths-to-mutate geoambiental
+	mutmut run --paths-to-mutate geoambienta
+
+tests:
+	pytest --cov=geoambiental --cov-report=term --verbose
