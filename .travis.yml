@@ -18,6 +18,8 @@ script:
   - pip install .
   - echo "Se revisa el formato de los archivos"
   - pylint-fail-under --fail_under 6.0 --disable=all geoambiental
+  - echo "Se verifica la resistencia de las pruebas a mutaciones"
+  - make mutation
 
 after_success:
   - codecov
