@@ -4,7 +4,7 @@ clean:
 	rm --recursive $$(find . -name "__pycache__")
 
 mutation:
-	mutmut run --paths-to-mutate geoambienta
+	mutmut run --paths-to-mutate geoambiental
 
 tests:
 	pytest --cov=geoambiental --cov-report=term --verbose
