@@ -13,7 +13,7 @@ install:
 
 script:
   - echo "Se corren las pruebas"
-  - pytest --cov=geoambiental --cov-report=term --verbose
+  - make tests
   - echo "Se construye e instala el módulo"
   - pip install .
   - echo "Se revisa el formato de los archivos"
