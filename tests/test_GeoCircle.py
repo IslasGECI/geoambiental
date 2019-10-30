@@ -25,6 +25,13 @@ class TestGeoCircle(unittest.TestCase):
         """
         self.assertTrue(len(self.circle.lon) == self.n_vertices)
 
+    def test_default_n_vertices_equals_100(self):
+        """
+        Verifica que la cantidad de vetices por defecto sean 100
+        """
+        circle = GeoCircle(self.centro, radius_m=self.radio)
+        self.assertTrue(len(circle.lon) == 100)
+
     def test_punto_medio(self):
         """
         Verifica que el punto medio caiga cerca del punto que se usó para definir el centro del círculo
