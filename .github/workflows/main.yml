@@ -1,0 +1,17 @@
+name: Corre Pruebas
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Construye imagen
+      run: docker build --tag islasgeci/geoambiental .
+    - name: Corre pruebas
+      run: docker run islasgeci/geoambiental make tests
+    - name: Evalúa resistencia a mutaciones
+      run: docker run islasgeci/geoambiental make mutation
