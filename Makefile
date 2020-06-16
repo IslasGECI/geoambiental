@@ -1,10 +1,23 @@
-.PHONY: clean mutation tests
+mutants: install
+	mutmut run --paths-to-mutate geoambiental
+
+.PHONY: \
+    clean \
+    install \
+    lint \
+    mutation \
+    tests \
 
 clean:
-	rm --recursive $$(find . -name "__pycache__")
+	rm --force --recursive .mutmut-cache
+	rm --force --recursive .pytest_cache
+	rm --force --recursive $$(find . -name '__pycache__')
 
-mutation:
-	mutmut run --paths-to-mutate geoambiental
+install:
+	pip install --editable .
 
 tests:
 	pytest --cov=geoambiental --cov-report=term --verbose
+
+lint:
+	pylint geoambiental

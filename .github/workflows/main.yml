@@ -1,17 +1,12 @@
-name: Corre Pruebas
-
+name: Conservación de Islas
 on: [push, pull_request]
-
 jobs:
-  build:
-
+  actions:
     runs-on: ubuntu-18.04
-
     steps:
-    - uses: actions/checkout@v1
+    - name: Copia repositorio
+      uses: actions/checkout@v2
     - name: Construye imagen
-      run: docker build --tag islasgeci/geoambiental .
-    - name: Corre pruebas
-      run: docker run islasgeci/geoambiental make tests
-    - name: Evalúa resistencia a mutaciones
-      run: docker run islasgeci/geoambiental make mutation
+      run: docker build --tag islasgeci .
+    - name: Ejecuta objetivo principal del Makefile
+      run: docker run islasgeci make
