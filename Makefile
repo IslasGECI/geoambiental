@@ -6,6 +6,7 @@ mutants: install
 	coverage \
     install \
     lint \
+	format \
     mutation \
     tests \
 
@@ -19,6 +20,10 @@ coverage:
 
 install:
 	pip install --editable .
+
+format:
+	black --check --line-length 100 ${repo}
+	black --check --line-length 100 tests
 
 tests:
 	pytest --verbose
