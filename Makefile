@@ -3,6 +3,7 @@ mutants: install
 
 .PHONY: \
     clean \
+	coverage \
     install \
     lint \
     mutation \
@@ -13,11 +14,14 @@ clean:
 	rm --force --recursive .pytest_cache
 	rm --force --recursive $$(find . -name '__pycache__')
 
+coverage:
+	pytest --cov=geoambiental --cov-report=term --verbose
+
 install:
 	pip install --editable .
 
 tests:
-	pytest --cov=geoambiental --cov-report=term --verbose
+	pytest --verbose
 
 lint:
 	pylint geoambiental
