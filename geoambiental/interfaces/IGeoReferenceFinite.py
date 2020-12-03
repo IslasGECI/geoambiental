@@ -6,6 +6,7 @@ class IGeoReferenceFinite(ABC):
     Esta interfaz la deben cumplir todas aquellas clases que representen un
     conjunto finito de coordenadas georeferenciadas
     """
+
     @property
     @abstractmethod
     def x_min(self) -> float:

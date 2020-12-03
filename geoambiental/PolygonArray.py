@@ -102,23 +102,33 @@ class PolygonArray(IGeoReference):
 
     @property
     def lon(self) -> FloatArray:
-        return np.concatenate([np.concatenate([poligono.lon, [np.nan]]) for poligono in self._polygons])
+        return np.concatenate(
+            [np.concatenate([poligono.lon, [np.nan]]) for poligono in self._polygons]
+        )
 
     @property
     def lat(self) -> FloatArray:
-        return np.concatenate([np.concatenate([poligono.lat, [np.nan]]) for poligono in self._polygons])
+        return np.concatenate(
+            [np.concatenate([poligono.lat, [np.nan]]) for poligono in self._polygons]
+        )
 
     @property
     def x(self) -> FloatArray:
-        return np.concatenate([np.concatenate([poligono.x, [np.nan]]) for poligono in self._polygons])
+        return np.concatenate(
+            [np.concatenate([poligono.x, [np.nan]]) for poligono in self._polygons]
+        )
 
     @property
     def y(self) -> FloatArray:
-        return np.concatenate([np.concatenate([poligono.y, [np.nan]]) for poligono in self._polygons])
+        return np.concatenate(
+            [np.concatenate([poligono.y, [np.nan]]) for poligono in self._polygons]
+        )
 
     @property
     def utm_zone(self) -> StringArray:
-        return np.concatenate([np.concatenate([poligono.utm_zone, [np.nan]]) for poligono in self._polygons])
+        return np.concatenate(
+            [np.concatenate([poligono.utm_zone, [np.nan]]) for poligono in self._polygons]
+        )
 
     @property
     def x_min(self) -> float:

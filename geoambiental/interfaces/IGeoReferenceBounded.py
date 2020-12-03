@@ -8,6 +8,7 @@ class IGeoReferenceBounded(ABC):
     Esta interfaz la deben cumplir todas aquellas clases que representen objetos
     que sean cerrados
     """
+
     @property
     @abstractmethod
     def area_ha(self) -> float:

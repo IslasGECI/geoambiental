@@ -7,7 +7,6 @@ from geoambiental.Point import Point
 
 
 class TestPoint(unittest.TestCase):
-
     def setUp(self):
         """
         Crea el punto con la coordenada que se utilizará en la prueba
@@ -30,5 +29,5 @@ class TestPoint(unittest.TestCase):
         self.assertEqual(self.p.utm_zone[1], "Q")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

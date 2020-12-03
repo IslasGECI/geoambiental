@@ -7,7 +7,6 @@ from .Line import Line
 
 
 class Trajectory(Line, ITimeReference):
-
     def __init__(self, lat, lon, date):
         super().__init__(lat, lon)
         self._date = np.array(date)

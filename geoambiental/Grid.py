@@ -57,8 +57,7 @@ class Grid(IGeoRaster, IGeoReference):
         zona_utm = np.empty(self.LON.shape, dtype=object)
         for i, lat in enumerate(self.lat):
             for j, lon in enumerate(self.lon):
-                _, _, numero, letra = utm.from_latlon(
-                    self.LAT[i][j], self.LON[i][j])
+                _, _, numero, letra = utm.from_latlon(self.LAT[i][j], self.LON[i][j])
                 zona_utm[i][j] = str(numero) + letra
         return zona_utm
 
@@ -68,7 +67,8 @@ class Grid(IGeoRaster, IGeoReference):
         for i, lat in enumerate(self.lat):
             for j, lon in enumerate(self.lon):
                 es_dentro = geo_reference_bounded.in_polygon(
-                    Point([self.LAT[i][j]], [self.LON[i][j]]))
+                    Point([self.LAT[i][j]], [self.LON[i][j]])
+                )
                 if es_dentro[0]:
                     LON[i][j] = self.LON[i][j]
                     LAT[i][j] = self.LAT[i][j]

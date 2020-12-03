@@ -9,14 +9,12 @@ import geoambiental.operations as operations
 
 
 class TestInPolygon(unittest.TestCase):
-
     def setUp(self):
         """
         Crea el punto con la coordenada que se utilizará en la prueba
         """
         self.p1 = Point([23.05], [-118.25])
-        self.poligono = Polygon(
-            [22.05, 22.05, 24.05, 24.05], [-119.22, -117.22, -117.22, -119.22])
+        self.poligono = Polygon([22.05, 22.05, 24.05, 24.05], [-119.22, -117.22, -117.22, -119.22])
 
     def test_in_polygon(self):
         """
@@ -25,5 +23,5 @@ class TestInPolygon(unittest.TestCase):
         self.assertTrue(operations.in_polygon(self.p1, self.poligono))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

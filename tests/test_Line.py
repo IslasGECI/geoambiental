@@ -8,7 +8,6 @@ from geoambiental.Point import Point
 
 
 class TestLine(unittest.TestCase):
-
     def setUp(self):
         """
         Crea el punto con la coordenada que se utilizará en la prueba
@@ -19,10 +18,8 @@ class TestLine(unittest.TestCase):
         """
         Verifica que la coordenada se transforme a UTM de forma correcta
         """
-        self.assertTrue(np.allclose(
-            self.line.x, [371938.22957668, 477299.34]))
-        self.assertTrue(np.allclose(
-            self.line.y, [2549601.77459413, 2438377.63]))
+        self.assertTrue(np.allclose(self.line.x, [371938.22957668, 477299.34]))
+        self.assertTrue(np.allclose(self.line.y, [2549601.77459413, 2438377.63]))
 
     def test_lon_lat_numpy(self):
         """
@@ -60,8 +57,7 @@ class TestLine(unittest.TestCase):
         """
         Verifica que se pueda hacer un _slice_ de la propiedad points
         """
-        self.assertTrue(isinstance(
-            self.line.to_point_array().points[1:], np.ndarray))
+        self.assertTrue(isinstance(self.line.to_point_array().points[1:], np.ndarray))
 
     def test_lenght_km(self):
         """
@@ -86,5 +82,5 @@ class TestLine(unittest.TestCase):
         self.assertTrue(np.allclose(self.line.x, arreglo_puntos.x))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

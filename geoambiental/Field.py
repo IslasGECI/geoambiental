@@ -23,7 +23,7 @@ class Field(Grid, ITimeReference):
         elif dimension_t == 2:
             valor = self._value[:, :, index]
         else:
-            raise Exception('No se encontró la dimensión del tiempo')
+            raise Exception("No se encontró la dimensión del tiempo")
         if isinstance(index, int):
             return Map(self.lat, self.lon, valor), self.date[index]
         else:
@@ -47,7 +47,8 @@ class Field(Grid, ITimeReference):
         for i, lat in enumerate(self.lat):
             for j, lon in enumerate(self.lon):
                 es_dentro = geo_reference_bounded.in_polygon(
-                    Point([self.LAT[i][j]], [self.LON[i][j]]))
+                    Point([self.LAT[i][j]], [self.LON[i][j]])
+                )
                 if es_dentro[0]:
                     if dimension_t == 0:
                         for t, _ in enumerate(self.date):
@@ -59,6 +60,5 @@ class Field(Grid, ITimeReference):
                         for t, _ in enumerate(self.date):
                             variables[i][j][t] = self._value[i][j][t]
                     else:
-                        raise Exception(
-                            'No se encontró la dimensión del tiempo')
+                        raise Exception("No se encontró la dimensión del tiempo")
         return Field(self.lat, self.lon, variables, self.date, self._dimensions)

@@ -48,5 +48,6 @@ format:
 tests:
 	pytest --verbose
 
-lint:
-	pylint geoambiental
+linter:
+	$(call lint, ${module})
+	$(call lint, tests)
