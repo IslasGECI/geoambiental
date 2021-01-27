@@ -1,5 +1,4 @@
 import numpy as np
-from sklearn.datasets.species_distributions import construct_grids
 from sklearn.neighbors import KernelDensity
 
 from .interfaces import IGeoReference
